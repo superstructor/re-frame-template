@@ -30,6 +30,7 @@ The optional profiles include:
 * Debug
   * [re-frame-10x](https://github.com/Day8/re-frame-10x) (`+10x`)
   * [re-frisk](https://github.com/flexsurfer/re-frisk) (`+re-frisk`)
+  * [dirac](https://github.com/binaryage/dirac) (`+dirac`)
 * Development
   * [cider](https://github.com/clojure-emacs/cider) (`+cider`)
   * [cljs.test](https://github.com/clojure/clojurescript/blob/master/src/main/cljs/cljs/test.cljs) and [doo](https://github.com/bensu/doo) (`+test`)

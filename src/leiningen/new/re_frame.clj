@@ -61,6 +61,7 @@
    ;; debug
    :re-frisk? (helpers/invoke-option "+re-frisk" options)
    :10x?      (helpers/option? "+10x" options)
+   :dirac?    (helpers/option? "+dirac" options)
 
    ;; devlopment
    :cider?   (helpers/invoke-option "+cider" options)
@@ -95,6 +96,7 @@
     ;; debug
     "+re-frisk"
     "+10x"
+    "+dirac"
 
     ;; development
     "+cider"

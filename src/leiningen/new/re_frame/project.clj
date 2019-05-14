@@ -38,12 +38,16 @@
   :less {:source-paths ["less"]
          :target-path  "resources/public/css"}
 {{/less?}}{{#cider?}}
-  :repl-options {:nrepl-middleware [cider.piggieback/wrap-cljs-repl]}
+  :repl-options { {{#dirac?}}:init (do
+                                    (require 'dirac.agent)
+                                    (dirac.agent/boot!)){{/dirac?}}
+                 :nrepl-middleware [cider.piggieback/wrap-cljs-repl]}
 {{/cider?}}
 
   :profiles
   {:dev
-   {:dependencies [[binaryage/devtools "0.9.10"]{{#10x?}}
+   {:dependencies [[binaryage/devtools "0.9.10"]{{#dirac?}}
+                   [binaryage/dirac "1.3.6"]{{/dirac?}}{{#10x?}}
                    [day8.re-frame/re-frame-10x "0.3.7-react16"]
                    [day8.re-frame/tracing "0.5.1"]{{/10x?}}{{#cider?}}
                    [figwheel-sidecar "0.5.16"]
@@ -72,7 +76,8 @@
                     :output-dir           "resources/public/js/compiled/out"
                     :asset-path           "js/compiled/out"
                     :source-map-timestamp true
-                    :preloads             [devtools.preload{{#10x?}}
+                    :preloads             [devtools.preload{{#dirac?}}
+                                           dirac.runtime.preload{{/dirac?}}{{#10x?}}
                                            day8.re-frame-10x.preload{{/10x?}}{{#re-frisk?}}
                                            re-frisk.preload{{/re-frisk?}}]{{#10x?}}
                     :closure-defines      {"re_frame.trace.trace_enabled_QMARK_" true
